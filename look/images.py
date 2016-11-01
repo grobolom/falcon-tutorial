@@ -10,7 +10,7 @@ class Resource(object):
         self.storage_path = storage_path
 
     def on_post(self, req, resp):
-        ext = mimetypes.guess_extensions(req.content_type)
+        ext = mimetypes.guess_extension(req.content_type)
         filename = '{uuid}{ext}'.format(uuid=uuid.uuid4(), ext=ext)
         image_path = os.path.join(self.storage_path, filename)
 
