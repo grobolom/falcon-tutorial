@@ -4,7 +4,7 @@ import mimetypes
 
 import falcon
 
-class Resource(object):
+class Collection(object):
 
     def __init__(self, storage_path):
         self.storage_path = storage_path
@@ -24,7 +24,3 @@ class Resource(object):
 
         resp.status = falcon.HTTP_201
         resp.location = '/images/' + filename
-
-    def on_get(self, req, resp):
-        resp.body = '{"message": "Hello World!"}'
-        resp.status = falcon.HTTP_200
